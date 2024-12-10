@@ -19,7 +19,7 @@ const fetchWeather = async () => {
 
     // Step 1: Get coordinates using the Geocoding API
     const geoResponse = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
     );
 
     if (!geoResponse.ok) {
