@@ -4,6 +4,26 @@ const cityInput = document.getElementById("cityInput");
 const errorElement = document.getElementById("error");
 const weatherInfo = document.getElementById("weatherInfo");
 
+
+// Function to display the current day and time
+const displayCurrentDateTime = () => {
+  const now = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const date = now.toLocaleDateString(undefined, options); // Formats the date
+  const time = now.toLocaleTimeString(); // Formats the time
+
+  // Display the formatted date and time in the placeholder
+  const currentDateTimeElement = document.getElementById("currentDateTime");
+  currentDateTimeElement.innerHTML = `<p>${date}</p><p>${time}</p>`;
+};
+
+// Call the function when the page loads
+displayCurrentDateTime();
+
+// Optional: Update time every second
+setInterval(displayCurrentDateTime, 1000);
+
+
 // Function to fetch and display weather data
 const fetchWeather = async () => {
   const city = cityInput.value.trim();
